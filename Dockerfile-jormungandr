@@ -1,9 +1,9 @@
 FROM python:2.7-alpine
 
 WORKDIR /usr/src/app
-COPY jormungandr/requirements.txt /usr/src/app
-COPY jormungandr/jormungandr /usr/src/app/jormungandr
-COPY navitiacommon/navitiacommon /usr/src/app/navitiacommon
+COPY source/jormungandr/requirements.txt /usr/src/app
+COPY source/jormungandr/jormungandr /usr/src/app/jormungandr
+COPY source/navitiacommon/navitiacommon /usr/src/app/navitiacommon
 
 RUN apk --update add \
         g++ \
@@ -15,6 +15,7 @@ RUN apk --update add \
         musl-dev \
         git \
         postgresql-dev && \
+    pip install -U pip && \
     pip install uwsgi && \
     pip install --no-cache-dir -r requirements.txt && \
     apk del \

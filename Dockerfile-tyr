@@ -16,6 +16,5 @@ COPY ed/gtfs2ed /usr/bin/gtfs2ed
 COPY ed/geopal2ed /usr/bin/geopal2ed
 COPY cities/cities /usr/bin/cities
 
-
 EXPOSE 5000
 

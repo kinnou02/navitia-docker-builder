@@ -4,7 +4,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y libzmq3  libpqxx-
 
 RUN mkdir -p /srv/kraken
 WORKDIR /srv/kraken
-COPY kraken kraken
+COPY kraken/kraken kraken
 EXPOSE 30000
 
 CMD kraken

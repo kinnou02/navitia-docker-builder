@@ -5,7 +5,7 @@ WORKDIR build
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y git g++ cmake libboost-all-dev libzmq-dev libosmpbf-dev libboost-all-dev libpqxx3-dev libgoogle-perftools-dev  libprotobuf-dev libproj-dev protobuf-compiler libgeos-c1 liblog4cplus-dev
- 
+
 RUN git clone --depth=1 --single-branch --branch=dev https://github.com/CanalTP/navitia.git
 
 WORKDIR navitia
@@ -20,10 +20,8 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 581
 RUN echo "deb https://apt.dockerproject.org/repo debian-jessie main" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y docker-engine
 
-#CMD git pull && git submodule update --init && make -j$(nproc) && 
-
-ADD Dockerfile-jormungandr source/Dockerfile-jormungandr
-ADD Dockerfile-kraken kraken/Dockerfile-kraken
+ADD Dockerfile-jormungandr Dockerfile-jormungandr
+ADD Dockerfile-kraken Dockerfile-kraken
 ADD Dockerfile-tyr Dockerfile-tyr
 
 RUN echo "**/*.a" > .dockerignore
