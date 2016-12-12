@@ -6,6 +6,8 @@ RUN apt-get update && \
                                 libgoogle-perftools4 \
                                 libproj-dev \
                                 libgeos-c1  \
+                                libzmq3 \
+                                libprotobuf9 \
                                 liblog4cplus-1.0-4 \
                                 libboost-chrono1.55.0 \
                                 libboost-date-time1.55.0 \
